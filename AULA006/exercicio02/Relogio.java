@@ -4,11 +4,10 @@
  */
 public class Relogio {
     // atributos
-
     private int hora = 99, minuto = 99, segundo = 99;
 
     // metodo construtor
-    Relogio(int hora, int minuto, int segundo) {
+    protected Relogio(int hora, int minuto, int segundo) {
         setHora(hora);
         setMinuto(minuto);
         setSegundo(segundo);
@@ -16,6 +15,12 @@ public class Relogio {
 
     // metodos
     // SETs
+    public void setHoraMinudoSegundo(int hora, int minuto, int segundo) {
+        setHora(hora);
+        setMinuto(minuto);
+        setSegundo(segundo);
+    }
+
     public void setHora(int hora) {
         if (hora < 0 || hora > 23) {
             hora = 0;
@@ -46,7 +51,7 @@ public class Relogio {
     }
 
     public void setZeraHoraMinutoSegundo() {
-        this.hora = "??";
+        this.hora = 99;
         this.minuto = 99;
         this.segundo = 99;
     }
@@ -65,8 +70,11 @@ public class Relogio {
     }
 
     public void getExibir() {
-        System.out.format("\n%02d:%02d:%02d", hora, minuto, segundo);
-        // hora + ":" + minuto + ":" + segundo
+        if (hora == 99 && minuto == 99 && segundo == 99) {
+            System.out.print(
+                    "\n!!Setar nos metodos Relogio.setHora();Relogio.setMinuto(); Relogio.setSegundo() ou setHoraMinudoSegundo() a hora desejada!!!");
+        } else {
+            System.out.format("\n%02d:%02d:%02d", hora, minuto, segundo);
+        }
     }
-
 }
