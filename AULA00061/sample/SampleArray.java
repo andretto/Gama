@@ -21,10 +21,10 @@ public class SampleArray {
             }
         }
 
-        for (String xixi : lista) {
+        
             
             
-        }
+        
 
     }
     
